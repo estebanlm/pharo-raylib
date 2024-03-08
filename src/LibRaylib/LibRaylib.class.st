@@ -1,3 +1,19 @@
+"
+This library is generated using pharo-cig, and this script: 
+
+```
+CigCLibraryGenerator new
+	prefix: 'Ray';
+	bindingsName: 'raylib';
+	import: '/home/esteban/dev/vm/raylib/src/raylib.h';
+	cIncludePath: '/home/esteban/dev/vm/raylib/src';
+	cLib: 'raylib';
+	withClasses;
+	useMainThread;
+	generate.
+```
+
+"
 Class {
 	#name : 'LibRaylib',
 	#superclass : 'FFILibrary',
