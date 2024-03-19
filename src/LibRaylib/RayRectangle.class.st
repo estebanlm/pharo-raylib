@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayRectangle',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_HEIGHT',
 		'OFFSET_WIDTH',

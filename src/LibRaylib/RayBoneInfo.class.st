@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayBoneInfo',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_NAME',
 		'OFFSET_PARENT'

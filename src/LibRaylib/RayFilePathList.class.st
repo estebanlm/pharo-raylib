@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayFilePathList',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_CAPACITY',
 		'OFFSET_COUNT',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayCamera2D',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_OFFSET',
 		'OFFSET_ROTATION',

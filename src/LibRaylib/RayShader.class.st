@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayShader',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_ID',
 		'OFFSET_LOCS'

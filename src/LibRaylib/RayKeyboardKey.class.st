@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayKeyboardKey',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'KEY_A',
 		'KEY_APOSTROPHE',

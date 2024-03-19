@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMusic',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_CTXDATA',
 		'OFFSET_CTXTYPE',

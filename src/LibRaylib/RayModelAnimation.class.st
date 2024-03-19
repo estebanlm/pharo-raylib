@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayModelAnimation',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_BONECOUNT',
 		'OFFSET_BONES',

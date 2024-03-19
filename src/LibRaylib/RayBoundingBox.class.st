@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayBoundingBox',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_MAX',
 		'OFFSET_MIN'

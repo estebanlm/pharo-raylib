@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayWave',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_CHANNELS',
 		'OFFSET_DATA',

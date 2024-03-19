@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayGamepadAxis',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'GAMEPAD_AXIS_LEFT_TRIGGER',
 		'GAMEPAD_AXIS_LEFT_X',

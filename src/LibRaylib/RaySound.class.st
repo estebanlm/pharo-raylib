@@ -1,7 +1,6 @@
 Class {
 	#name : 'RaySound',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_FRAMECOUNT',
 		'OFFSET_STREAM'

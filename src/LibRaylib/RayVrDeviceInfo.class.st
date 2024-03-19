@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayVrDeviceInfo',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_CHROMAABCORRECTION',
 		'OFFSET_EYETOSCREENDISTANCE',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayGesture',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'GESTURE_DOUBLETAP',
 		'GESTURE_DRAG',

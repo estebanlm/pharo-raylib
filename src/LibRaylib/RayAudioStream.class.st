@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayAudioStream',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_BUFFER',
 		'OFFSET_CHANNELS',

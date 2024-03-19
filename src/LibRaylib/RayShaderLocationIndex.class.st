@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayShaderLocationIndex',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'SHADER_LOC_COLOR_AMBIENT',
 		'SHADER_LOC_COLOR_DIFFUSE',

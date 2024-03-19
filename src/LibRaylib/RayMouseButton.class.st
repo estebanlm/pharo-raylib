@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMouseButton',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'MOUSE_BUTTON_BACK',
 		'MOUSE_BUTTON_EXTRA',

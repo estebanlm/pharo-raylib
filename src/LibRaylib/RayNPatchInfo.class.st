@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayNPatchInfo',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_BOTTOM',
 		'OFFSET_LAYOUT',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayPixelFormat',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA',
 		'PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayShaderUniformDataType',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'SHADER_UNIFORM_FLOAT',
 		'SHADER_UNIFORM_INT',

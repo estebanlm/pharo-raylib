@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMaterialMap',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_COLOR',
 		'OFFSET_TEXTURE',

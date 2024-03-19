@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayCubemapLayout',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'CUBEMAP_LAYOUT_AUTO_DETECT',
 		'CUBEMAP_LAYOUT_CROSS_FOUR_BY_THREE',

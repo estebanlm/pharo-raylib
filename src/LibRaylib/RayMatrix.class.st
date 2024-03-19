@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMatrix',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_M0',
 		'OFFSET_M1',

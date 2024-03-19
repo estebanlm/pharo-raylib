@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayCameraProjection',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'CAMERA_ORTHOGRAPHIC',
 		'CAMERA_PERSPECTIVE'

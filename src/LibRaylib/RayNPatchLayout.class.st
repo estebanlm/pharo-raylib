@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayNPatchLayout',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'NPATCH_NINE_PATCH',
 		'NPATCH_THREE_PATCH_HORIZONTAL',

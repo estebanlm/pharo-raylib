@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayImage',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_DATA',
 		'OFFSET_FORMAT',

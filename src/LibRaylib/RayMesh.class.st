@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMesh',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_ANIMNORMALS',
 		'OFFSET_ANIMVERTICES',

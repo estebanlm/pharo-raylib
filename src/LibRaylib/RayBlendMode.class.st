@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayBlendMode',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'BLEND_ADDITIVE',
 		'BLEND_ADD_COLORS',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayAutomationEvent',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_FRAME',
 		'OFFSET_PARAMS',

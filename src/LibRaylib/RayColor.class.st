@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayColor',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_A',
 		'OFFSET_B',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayShaderAttributeDataType',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'SHADER_ATTRIB_FLOAT',
 		'SHADER_ATTRIB_VEC2',

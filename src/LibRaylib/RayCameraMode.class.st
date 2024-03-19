@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayCameraMode',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'CAMERA_CUSTOM',
 		'CAMERA_FIRST_PERSON',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayRayCollision',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_DISTANCE',
 		'OFFSET_HIT',

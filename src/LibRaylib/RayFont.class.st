@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayFont',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_BASESIZE',
 		'OFFSET_GLYPHCOUNT',

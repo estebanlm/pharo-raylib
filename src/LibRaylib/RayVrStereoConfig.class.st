@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayVrStereoConfig',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_LEFTLENSCENTER',
 		'OFFSET_LEFTSCREENCENTER',

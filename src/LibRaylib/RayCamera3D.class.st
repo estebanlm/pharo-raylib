@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayCamera3D',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_FOVY',
 		'OFFSET_POSITION',

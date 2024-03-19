@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMouseCursor',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'MOUSE_CURSOR_ARROW',
 		'MOUSE_CURSOR_CROSSHAIR',

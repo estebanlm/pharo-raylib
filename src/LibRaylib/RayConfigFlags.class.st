@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayConfigFlags',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'FLAG_BORDERLESS_WINDOWED_MODE',
 		'FLAG_FULLSCREEN_MODE',

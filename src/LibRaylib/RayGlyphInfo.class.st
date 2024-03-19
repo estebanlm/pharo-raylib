@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayGlyphInfo',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_ADVANCEX',
 		'OFFSET_IMAGE',

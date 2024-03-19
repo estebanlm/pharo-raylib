@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayGamepadButton',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'GAMEPAD_BUTTON_LEFT_FACE_DOWN',
 		'GAMEPAD_BUTTON_LEFT_FACE_LEFT',

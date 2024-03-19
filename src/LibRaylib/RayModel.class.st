@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayModel',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_BINDPOSE',
 		'OFFSET_BONECOUNT',

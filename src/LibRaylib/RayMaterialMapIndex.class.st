@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayMaterialMapIndex',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'MATERIAL_MAP_ALBEDO',
 		'MATERIAL_MAP_BRDF',

@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayRay',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_DIRECTION',
 		'OFFSET_POSITION'

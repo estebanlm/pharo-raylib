@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayTextureWrap',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'TEXTURE_WRAP_CLAMP',
 		'TEXTURE_WRAP_MIRROR_CLAMP',

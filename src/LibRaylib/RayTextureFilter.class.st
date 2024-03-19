@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayTextureFilter',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'TEXTURE_FILTER_ANISOTROPIC_16X',
 		'TEXTURE_FILTER_ANISOTROPIC_4X',

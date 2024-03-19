@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayTraceLogLevel',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'LOG_ALL',
 		'LOG_DEBUG',

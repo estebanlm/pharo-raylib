@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayTransform',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_ROTATION',
 		'OFFSET_SCALE',

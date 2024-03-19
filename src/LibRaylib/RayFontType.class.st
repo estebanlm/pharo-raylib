@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayFontType',
 	#superclass : 'RayEnumeration',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'FONT_BITMAP',
 		'FONT_DEFAULT',

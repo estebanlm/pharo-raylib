@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayVector2',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_X',
 		'OFFSET_Y'

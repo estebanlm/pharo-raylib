@@ -1,7 +1,6 @@
 Class {
 	#name : 'RayTexture',
 	#superclass : 'RayStructure',
-	#classTraits : '{} + TraitedClass',
 	#classVars : [
 		'OFFSET_FORMAT',
 		'OFFSET_HEIGHT',
