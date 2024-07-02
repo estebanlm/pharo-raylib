@@ -25,6 +25,27 @@ Class {
 	#tag : 'Library'
 }
 
+{ #category : 'examples' }
+LibRaylib class >> example [
+	| ray |
+
+	ray := self uniqueInstance.
+	ray initWindowWidth: 800 height: 450 title: 'Test'.
+	ray setTargetFPS: 60.
+	[ ray windowShouldClose = 0 ] whileTrue: [ 
+		ray drawDo: [ 
+			ray clearBackground: RayColor white.
+			ray 
+				drawText: 'Congrats! You created your first window!' 
+				posX: 190
+				posY: 200
+				fontSize: 20 
+				color: RayColor lightGray.
+			ray drawFPSPosX: 10 posY: 10 ] ].
+
+	ray closeWindow
+]
+
 { #category : 'public' }
 LibRaylib >> attachAudioMixedProcessor: processor [
 
@@ -437,6 +458,14 @@ LibRaylib >> drawCylinderWiresExStartPos: startPos endPos: endPos startRadius: s
 LibRaylib >> drawCylinderWiresPosition: position radiusTop: radiusTop radiusBottom: radiusBottom height: height slices: slices color: color [
 
 	self ffiCall: #(void DrawCylinderWires(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color))
+]
+
+{ #category : 'drawing' }
+LibRaylib >> drawDo: aBlock [ 
+
+	self beginDrawing.
+	aBlock ensure: [ 
+		self endDrawing ]
 ]
 
 { #category : 'public' }
