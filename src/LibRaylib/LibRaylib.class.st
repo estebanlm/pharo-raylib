@@ -217,37 +217,37 @@ LibRaylib >> codepointToUTF8Codepoint: codepoint utf8Size: utf8Size [
 { #category : 'public' }
 LibRaylib >> colorAlphaBlendDst: dst src: src tint: tint [
 
-	self ffiCall: #(struct Color ColorAlphaBlend(Color dst, Color src, Color tint))
+	self ffiCall: #(Color ColorAlphaBlend(Color dst, Color src, Color tint))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorAlphaColor: color alpha: alpha [
 
-	self ffiCall: #(struct Color ColorAlpha(Color color, float alpha))
+	self ffiCall: #(Color ColorAlpha(Color color, float alpha))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorBrightnessColor: color factor: factor [
 
-	self ffiCall: #(struct Color ColorBrightness(Color color, float factor))
+	self ffiCall: #(Color ColorBrightness(Color color, float factor))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorContrastColor: color contrast: contrast [
 
-	self ffiCall: #(struct Color ColorContrast(Color color, float contrast))
+	self ffiCall: #(Color ColorContrast(Color color, float contrast))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorFromHSVHue: hue saturation: saturation value: value [
 
-	self ffiCall: #(struct Color ColorFromHSV(float hue, float saturation, float value))
+	self ffiCall: #(Color ColorFromHSV(float hue, float saturation, float value))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorFromNormalized: normalized [
 
-	self ffiCall: #(struct Color ColorFromNormalized(Vector4 normalized))
+	self ffiCall: #(Color ColorFromNormalized(Vector4 normalized))
 ]
 
 { #category : 'public' }
@@ -259,19 +259,19 @@ LibRaylib >> colorIsEqualCol1: col1 col2: col2 [
 { #category : 'public' }
 LibRaylib >> colorNormalize: color [
 
-	self ffiCall: #(struct Vector4 ColorNormalize(Color color))
+	self ffiCall: #(Vector4 ColorNormalize(Color color))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorTintColor: color tint: tint [
 
-	self ffiCall: #(struct Color ColorTint(Color color, Color tint))
+	self ffiCall: #(Color ColorTint(Color color, Color tint))
 ]
 
 { #category : 'public' }
 LibRaylib >> colorToHSV: color [
 
-	self ffiCall: #(struct Vector3 ColorToHSV(Color color))
+	self ffiCall: #(Vector3 ColorToHSV(Color color))
 ]
 
 { #category : 'public' }
@@ -999,7 +999,7 @@ LibRaylib >> exportWaveAsCodeWave: wave fileName: fileName [
 { #category : 'public' }
 LibRaylib >> fadeColor: color alpha: alpha [
 
-	self ffiCall: #(struct Color Fade(Color color, float alpha))
+	self ffiCall: #(Color Fade(Color color, float alpha))
 ]
 
 { #category : 'public' }
@@ -1011,121 +1011,121 @@ LibRaylib >> fileExists: fileName [
 { #category : 'public' }
 LibRaylib >> genImageCellularWidth: width height: height tileSize: tileSize [
 
-	self ffiCall: #(struct Image GenImageCellular(int width, int height, int tileSize))
+	self ffiCall: #(Image GenImageCellular(int width, int height, int tileSize))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageCheckedWidth: width height: height checksX: checksX checksY: checksY col1: col1 col2: col2 [
 
-	self ffiCall: #(struct Image GenImageChecked(int width, int height, int checksX, int checksY, Color col1, Color col2))
+	self ffiCall: #(Image GenImageChecked(int width, int height, int checksX, int checksY, Color col1, Color col2))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageColorWidth: width height: height color: color [
 
-	self ffiCall: #(struct Image GenImageColor(int width, int height, Color color))
+	self ffiCall: #(Image GenImageColor(int width, int height, Color color))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageFontAtlasGlyphs: glyphs glyphRecs: glyphRecs glyphCount: glyphCount fontSize: fontSize padding: padding packMethod: packMethod [
 
-	self ffiCall: #(struct Image GenImageFontAtlas(GlyphInfo* glyphs, Rectangle** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod))
+	self ffiCall: #(Image GenImageFontAtlas(GlyphInfo* glyphs, Rectangle** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageGradientLinearWidth: width height: height direction: direction start: start end: end [
 
-	self ffiCall: #(struct Image GenImageGradientLinear(int width, int height, int direction, Color start, Color end))
+	self ffiCall: #(Image GenImageGradientLinear(int width, int height, int direction, Color start, Color end))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageGradientRadialWidth: width height: height density: density inner: inner outer: outer [
 
-	self ffiCall: #(struct Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer))
+	self ffiCall: #(Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageGradientSquareWidth: width height: height density: density inner: inner outer: outer [
 
-	self ffiCall: #(struct Image GenImageGradientSquare(int width, int height, float density, Color inner, Color outer))
+	self ffiCall: #(Image GenImageGradientSquare(int width, int height, float density, Color inner, Color outer))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImagePerlinNoiseWidth: width height: height offsetX: offsetX offsetY: offsetY scale: scale [
 
-	self ffiCall: #(struct Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float scale))
+	self ffiCall: #(Image GenImagePerlinNoise(int width, int height, int offsetX, int offsetY, float scale))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageTextWidth: width height: height text: text [
 
-	self ffiCall: #(struct Image GenImageText(int width, int height, const char* text))
+	self ffiCall: #(Image GenImageText(int width, int height, const char* text))
 ]
 
 { #category : 'public' }
 LibRaylib >> genImageWhiteNoiseWidth: width height: height factor: factor [
 
-	self ffiCall: #(struct Image GenImageWhiteNoise(int width, int height, float factor))
+	self ffiCall: #(Image GenImageWhiteNoise(int width, int height, float factor))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshConeRadius: radius height: height slices: slices [
 
-	self ffiCall: #(struct Mesh GenMeshCone(float radius, float height, int slices))
+	self ffiCall: #(Mesh GenMeshCone(float radius, float height, int slices))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshCubeWidth: width height: height length: length [
 
-	self ffiCall: #(struct Mesh GenMeshCube(float width, float height, float length))
+	self ffiCall: #(Mesh GenMeshCube(float width, float height, float length))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshCubicmap: cubicmap cubeSize: cubeSize [
 
-	self ffiCall: #(struct Mesh GenMeshCubicmap(Image cubicmap, Vector3 cubeSize))
+	self ffiCall: #(Mesh GenMeshCubicmap(Image cubicmap, Vector3 cubeSize))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshCylinderRadius: radius height: height slices: slices [
 
-	self ffiCall: #(struct Mesh GenMeshCylinder(float radius, float height, int slices))
+	self ffiCall: #(Mesh GenMeshCylinder(float radius, float height, int slices))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshHeightmap: heightmap size: size [
 
-	self ffiCall: #(struct Mesh GenMeshHeightmap(Image heightmap, Vector3 size))
+	self ffiCall: #(Mesh GenMeshHeightmap(Image heightmap, Vector3 size))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshHemiSphereRadius: radius rings: rings slices: slices [
 
-	self ffiCall: #(struct Mesh GenMeshHemiSphere(float radius, int rings, int slices))
+	self ffiCall: #(Mesh GenMeshHemiSphere(float radius, int rings, int slices))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshKnotRadius: radius size: size radSeg: radSeg sides: sides [
 
-	self ffiCall: #(struct Mesh GenMeshKnot(float radius, float size, int radSeg, int sides))
+	self ffiCall: #(Mesh GenMeshKnot(float radius, float size, int radSeg, int sides))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshPlaneWidth: width length: length resX: resX resZ: resZ [
 
-	self ffiCall: #(struct Mesh GenMeshPlane(float width, float length, int resX, int resZ))
+	self ffiCall: #(Mesh GenMeshPlane(float width, float length, int resX, int resZ))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshPolySides: sides radius: radius [
 
-	self ffiCall: #(struct Mesh GenMeshPoly(int sides, float radius))
+	self ffiCall: #(Mesh GenMeshPoly(int sides, float radius))
 ]
 
 { #category : 'public' }
 LibRaylib >> genMeshSphereRadius: radius rings: rings slices: slices [
 
-	self ffiCall: #(struct Mesh GenMeshSphere(float radius, int rings, int slices))
+	self ffiCall: #(Mesh GenMeshSphere(float radius, int rings, int slices))
 ]
 
 { #category : 'public' }
@@ -1137,7 +1137,7 @@ LibRaylib >> genMeshTangents: mesh [
 { #category : 'public' }
 LibRaylib >> genMeshTorusRadius: radius size: size radSeg: radSeg sides: sides [
 
-	self ffiCall: #(struct Mesh GenMeshTorus(float radius, float size, int radSeg, int sides))
+	self ffiCall: #(Mesh GenMeshTorus(float radius, float size, int radSeg, int sides))
 ]
 
 { #category : 'public' }
@@ -1155,13 +1155,13 @@ LibRaylib >> getApplicationDirectory [
 { #category : 'public' }
 LibRaylib >> getCameraMatrix2D: camera [
 
-	self ffiCall: #(struct Matrix GetCameraMatrix2D(Camera2D camera))
+	self ffiCall: #(Matrix GetCameraMatrix2D(Camera2D camera))
 ]
 
 { #category : 'public' }
 LibRaylib >> getCameraMatrix: camera [
 
-	self ffiCall: #(struct Matrix GetCameraMatrix(Camera camera))
+	self ffiCall: #(Matrix GetCameraMatrix(Camera camera))
 ]
 
 { #category : 'public' }
@@ -1203,13 +1203,13 @@ LibRaylib >> getCodepointText: text codepointSize: codepointSize [
 { #category : 'public' }
 LibRaylib >> getCollisionRecRec1: rec1 rec2: rec2 [
 
-	self ffiCall: #(struct Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2))
+	self ffiCall: #(Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2))
 ]
 
 { #category : 'public' }
 LibRaylib >> getColor: hexValue [
 
-	self ffiCall: #(struct Color GetColor(uint hexValue))
+	self ffiCall: #(Color GetColor(uint hexValue))
 ]
 
 { #category : 'public' }
@@ -1263,7 +1263,7 @@ LibRaylib >> getFileNameWithoutExt: filePath [
 { #category : 'public' }
 LibRaylib >> getFontDefault [
 
-	self ffiCall: #(struct Font GetFontDefault())
+	self ffiCall: #(Font GetFontDefault())
 ]
 
 { #category : 'public' }
@@ -1311,7 +1311,7 @@ LibRaylib >> getGestureDragAngle [
 { #category : 'public' }
 LibRaylib >> getGestureDragVector [
 
-	self ffiCall: #(struct Vector2 GetGestureDragVector())
+	self ffiCall: #(Vector2 GetGestureDragVector())
 ]
 
 { #category : 'public' }
@@ -1329,13 +1329,13 @@ LibRaylib >> getGesturePinchAngle [
 { #category : 'public' }
 LibRaylib >> getGesturePinchVector [
 
-	self ffiCall: #(struct Vector2 GetGesturePinchVector())
+	self ffiCall: #(Vector2 GetGesturePinchVector())
 ]
 
 { #category : 'public' }
 LibRaylib >> getGlyphAtlasRecFont: font codepoint: codepoint [
 
-	self ffiCall: #(struct Rectangle GetGlyphAtlasRec(Font font, int codepoint))
+	self ffiCall: #(Rectangle GetGlyphAtlasRec(Font font, int codepoint))
 ]
 
 { #category : 'public' }
@@ -1347,19 +1347,19 @@ LibRaylib >> getGlyphIndexFont: font codepoint: codepoint [
 { #category : 'public' }
 LibRaylib >> getGlyphInfoFont: font codepoint: codepoint [
 
-	self ffiCall: #(struct GlyphInfo GetGlyphInfo(Font font, int codepoint))
+	self ffiCall: #(GlyphInfo GetGlyphInfo(Font font, int codepoint))
 ]
 
 { #category : 'public' }
 LibRaylib >> getImageAlphaBorderImage: image threshold: threshold [
 
-	self ffiCall: #(struct Rectangle GetImageAlphaBorder(Image image, float threshold))
+	self ffiCall: #(Rectangle GetImageAlphaBorder(Image image, float threshold))
 ]
 
 { #category : 'public' }
 LibRaylib >> getImageColorImage: image x: x y: y [
 
-	self ffiCall: #(struct Color GetImageColor(Image image, int x, int y))
+	self ffiCall: #(Color GetImageColor(Image image, int x, int y))
 ]
 
 { #category : 'public' }
@@ -1377,13 +1377,13 @@ LibRaylib >> getMasterVolume [
 { #category : 'public' }
 LibRaylib >> getMeshBoundingBox: mesh [
 
-	self ffiCall: #(struct BoundingBox GetMeshBoundingBox(Mesh mesh))
+	self ffiCall: #(BoundingBox GetMeshBoundingBox(Mesh mesh))
 ]
 
 { #category : 'public' }
 LibRaylib >> getModelBoundingBox: model [
 
-	self ffiCall: #(struct BoundingBox GetModelBoundingBox(Model model))
+	self ffiCall: #(BoundingBox GetModelBoundingBox(Model model))
 ]
 
 { #category : 'public' }
@@ -1419,7 +1419,7 @@ LibRaylib >> getMonitorPhysicalWidth: monitor [
 { #category : 'public' }
 LibRaylib >> getMonitorPosition: monitor [
 
-	self ffiCall: #(struct Vector2 GetMonitorPosition(int monitor))
+	self ffiCall: #(Vector2 GetMonitorPosition(int monitor))
 ]
 
 { #category : 'public' }
@@ -1437,19 +1437,19 @@ LibRaylib >> getMonitorWidth: monitor [
 { #category : 'public' }
 LibRaylib >> getMouseDelta [
 
-	self ffiCall: #(struct Vector2 GetMouseDelta())
+	self ffiCall: #(Vector2 GetMouseDelta())
 ]
 
 { #category : 'public' }
 LibRaylib >> getMousePosition [
 
-	self ffiCall: #(struct Vector2 GetMousePosition())
+	self ffiCall: #(Vector2 GetMousePosition())
 ]
 
 { #category : 'public' }
 LibRaylib >> getMouseRayMousePosition: mousePosition camera: camera [
 
-	self ffiCall: #(struct Ray GetMouseRay(Vector2 mousePosition, Camera camera))
+	self ffiCall: #(Ray GetMouseRay(Vector2 mousePosition, Camera camera))
 ]
 
 { #category : 'public' }
@@ -1461,7 +1461,7 @@ LibRaylib >> getMouseWheelMove [
 { #category : 'public' }
 LibRaylib >> getMouseWheelMoveV [
 
-	self ffiCall: #(struct Vector2 GetMouseWheelMoveV())
+	self ffiCall: #(Vector2 GetMouseWheelMoveV())
 ]
 
 { #category : 'public' }
@@ -1491,7 +1491,7 @@ LibRaylib >> getMusicTimePlayed: music [
 { #category : 'public' }
 LibRaylib >> getPixelColorSrcPtr: srcPtr format: format [
 
-	self ffiCall: #(struct Color GetPixelColor(void* srcPtr, int format))
+	self ffiCall: #(Color GetPixelColor(void* srcPtr, int format))
 ]
 
 { #category : 'public' }
@@ -1515,31 +1515,31 @@ LibRaylib >> getRandomValueMin: min max: max [
 { #category : 'public' }
 LibRaylib >> getRayCollisionBoxRay: ray box: box [
 
-	self ffiCall: #(struct RayCollision GetRayCollisionBox(Ray ray, BoundingBox box))
+	self ffiCall: #(RayCollision GetRayCollisionBox(Ray ray, BoundingBox box))
 ]
 
 { #category : 'public' }
 LibRaylib >> getRayCollisionMeshRay: ray mesh: mesh transform: transform [
 
-	self ffiCall: #(struct RayCollision GetRayCollisionMesh(Ray ray, Mesh mesh, Matrix transform))
+	self ffiCall: #(RayCollision GetRayCollisionMesh(Ray ray, Mesh mesh, Matrix transform))
 ]
 
 { #category : 'public' }
 LibRaylib >> getRayCollisionQuadRay: ray p1: p1 p2: p2 p3: p3 p4: p4 [
 
-	self ffiCall: #(struct RayCollision GetRayCollisionQuad(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4))
+	self ffiCall: #(RayCollision GetRayCollisionQuad(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4))
 ]
 
 { #category : 'public' }
 LibRaylib >> getRayCollisionSphereRay: ray center: center radius: radius [
 
-	self ffiCall: #(struct RayCollision GetRayCollisionSphere(Ray ray, Vector3 center, float radius))
+	self ffiCall: #(RayCollision GetRayCollisionSphere(Ray ray, Vector3 center, float radius))
 ]
 
 { #category : 'public' }
 LibRaylib >> getRayCollisionTriangleRay: ray p1: p1 p2: p2 p3: p3 [
 
-	self ffiCall: #(struct RayCollision GetRayCollisionTriangle(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3))
+	self ffiCall: #(RayCollision GetRayCollisionTriangle(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3))
 ]
 
 { #category : 'public' }
@@ -1563,7 +1563,7 @@ LibRaylib >> getScreenHeight [
 { #category : 'public' }
 LibRaylib >> getScreenToWorld2DPosition: position camera: camera [
 
-	self ffiCall: #(struct Vector2 GetScreenToWorld2D(Vector2 position, Camera2D camera))
+	self ffiCall: #(Vector2 GetScreenToWorld2D(Vector2 position, Camera2D camera))
 ]
 
 { #category : 'public' }
@@ -1593,37 +1593,37 @@ LibRaylib >> getShapesTexture [
 { #category : 'public' }
 LibRaylib >> getShapesTextureRectangle [
 
-	self ffiCall: #(struct Rectangle GetShapesTextureRectangle())
+	self ffiCall: #(Rectangle GetShapesTextureRectangle())
 ]
 
 { #category : 'public' }
 LibRaylib >> getSplinePointBasisP1: p1 p2: p2 p3: p3 p4: p4 t: t [
 
-	self ffiCall: #(struct Vector2 GetSplinePointBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t))
+	self ffiCall: #(Vector2 GetSplinePointBasis(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t))
 ]
 
 { #category : 'public' }
 LibRaylib >> getSplinePointBezierCubicP1: p1 c2: c2 c3: c3 p4: p4 t: t [
 
-	self ffiCall: #(struct Vector2 GetSplinePointBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float t))
+	self ffiCall: #(Vector2 GetSplinePointBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float t))
 ]
 
 { #category : 'public' }
 LibRaylib >> getSplinePointBezierQuadP1: p1 c2: c2 p3: p3 t: t [
 
-	self ffiCall: #(struct Vector2 GetSplinePointBezierQuad(Vector2 p1, Vector2 c2, Vector2 p3, float t))
+	self ffiCall: #(Vector2 GetSplinePointBezierQuad(Vector2 p1, Vector2 c2, Vector2 p3, float t))
 ]
 
 { #category : 'public' }
 LibRaylib >> getSplinePointCatmullRomP1: p1 p2: p2 p3: p3 p4: p4 t: t [
 
-	self ffiCall: #(struct Vector2 GetSplinePointCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t))
+	self ffiCall: #(Vector2 GetSplinePointCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t))
 ]
 
 { #category : 'public' }
 LibRaylib >> getSplinePointLinearStartPos: startPos endPos: endPos t: t [
 
-	self ffiCall: #(struct Vector2 GetSplinePointLinear(Vector2 startPos, Vector2 endPos, float t))
+	self ffiCall: #(Vector2 GetSplinePointLinear(Vector2 startPos, Vector2 endPos, float t))
 ]
 
 { #category : 'public' }
@@ -1647,7 +1647,7 @@ LibRaylib >> getTouchPointId: index [
 { #category : 'public' }
 LibRaylib >> getTouchPosition: index [
 
-	self ffiCall: #(struct Vector2 GetTouchPosition(int index))
+	self ffiCall: #(Vector2 GetTouchPosition(int index))
 ]
 
 { #category : 'public' }
@@ -1665,7 +1665,7 @@ LibRaylib >> getTouchY [
 { #category : 'public' }
 LibRaylib >> getViewRayMousePosition: mousePosition camera: camera width: width height: height [
 
-	self ffiCall: #(struct Ray GetViewRay(Vector2 mousePosition, Camera camera, float width, float height))
+	self ffiCall: #(Ray GetViewRay(Vector2 mousePosition, Camera camera, float width, float height))
 ]
 
 { #category : 'public' }
@@ -1677,13 +1677,13 @@ LibRaylib >> getWindowHandle [
 { #category : 'public' }
 LibRaylib >> getWindowPosition [
 
-	self ffiCall: #(struct Vector2 GetWindowPosition())
+	self ffiCall: #(Vector2 GetWindowPosition())
 ]
 
 { #category : 'public' }
 LibRaylib >> getWindowScaleDPI [
 
-	self ffiCall: #(struct Vector2 GetWindowScaleDPI())
+	self ffiCall: #(Vector2 GetWindowScaleDPI())
 ]
 
 { #category : 'public' }
@@ -1695,19 +1695,19 @@ LibRaylib >> getWorkingDirectory [
 { #category : 'public' }
 LibRaylib >> getWorldToScreen2DPosition: position camera: camera [
 
-	self ffiCall: #(struct Vector2 GetWorldToScreen2D(Vector2 position, Camera2D camera))
+	self ffiCall: #(Vector2 GetWorldToScreen2D(Vector2 position, Camera2D camera))
 ]
 
 { #category : 'public' }
 LibRaylib >> getWorldToScreenExPosition: position camera: camera width: width height: height [
 
-	self ffiCall: #(struct Vector2 GetWorldToScreenEx(Vector3 position, Camera camera, int width, int height))
+	self ffiCall: #(Vector2 GetWorldToScreenEx(Vector3 position, Camera camera, int width, int height))
 ]
 
 { #category : 'public' }
 LibRaylib >> getWorldToScreenPosition: position camera: camera [
 
-	self ffiCall: #(struct Vector2 GetWorldToScreen(Vector3 position, Camera camera))
+	self ffiCall: #(Vector2 GetWorldToScreen(Vector3 position, Camera camera))
 ]
 
 { #category : 'public' }
@@ -1791,7 +1791,7 @@ LibRaylib >> imageColorTintImage: image color: color [
 { #category : 'public' }
 LibRaylib >> imageCopy: image [
 
-	self ffiCall: #(struct Image ImageCopy(Image image))
+	self ffiCall: #(Image ImageCopy(Image image))
 ]
 
 { #category : 'public' }
@@ -1917,7 +1917,7 @@ LibRaylib >> imageFormatImage: image newFormat: newFormat [
 { #category : 'public' }
 LibRaylib >> imageFromImage: image rec: rec [
 
-	self ffiCall: #(struct Image ImageFromImage(Image image, Rectangle rec))
+	self ffiCall: #(Image ImageFromImage(Image image, Rectangle rec))
 ]
 
 { #category : 'public' }
@@ -1971,13 +1971,13 @@ LibRaylib >> imageRotateImage: image degrees: degrees [
 { #category : 'public' }
 LibRaylib >> imageText: text fontSize: fontSize color: color [
 
-	self ffiCall: #(struct Image ImageText(const char* text, int fontSize, Color color))
+	self ffiCall: #(Image ImageText(const char* text, int fontSize, Color color))
 ]
 
 { #category : 'public' }
 LibRaylib >> imageTextExFont: font text: text fontSize: fontSize spacing: spacing tint: tint [
 
-	self ffiCall: #(struct Image ImageTextEx(Font font, const char* text, float fontSize, float spacing, Color tint))
+	self ffiCall: #(Image ImageTextEx(Font font, const char* text, float fontSize, float spacing, Color tint))
 ]
 
 { #category : 'public' }
@@ -2271,13 +2271,13 @@ LibRaylib >> isWindowState: flag [
 { #category : 'public' }
 LibRaylib >> loadAudioStreamSampleRate: sampleRate sampleSize: sampleSize channels: channels [
 
-	self ffiCall: #(struct AudioStream LoadAudioStream(uint sampleRate, uint sampleSize, uint channels))
+	self ffiCall: #(AudioStream LoadAudioStream(uint sampleRate, uint sampleSize, uint channels))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadAutomationEventList: fileName [
 
-	self ffiCall: #(struct AutomationEventList LoadAutomationEventList(const char* fileName))
+	self ffiCall: #(AutomationEventList LoadAutomationEventList(const char* fileName))
 ]
 
 { #category : 'public' }
@@ -2289,19 +2289,19 @@ LibRaylib >> loadCodepointsText: text count: count [
 { #category : 'public' }
 LibRaylib >> loadDirectoryFiles: dirPath [
 
-	self ffiCall: #(struct FilePathList LoadDirectoryFiles(const char* dirPath))
+	self ffiCall: #(FilePathList LoadDirectoryFiles(const char* dirPath))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadDirectoryFilesExBasePath: basePath filter: filter scanSubdirs: scanSubdirs [
 
-	self ffiCall: #(struct FilePathList LoadDirectoryFilesEx(const char* basePath, const char* filter, bool scanSubdirs))
+	self ffiCall: #(FilePathList LoadDirectoryFilesEx(const char* basePath, const char* filter, bool scanSubdirs))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadDroppedFiles [
 
-	self ffiCall: #(struct FilePathList LoadDroppedFiles())
+	self ffiCall: #(FilePathList LoadDroppedFiles())
 ]
 
 { #category : 'public' }
@@ -2319,133 +2319,133 @@ LibRaylib >> loadFileText: fileName [
 { #category : 'public' }
 LibRaylib >> loadFont: fileName [
 
-	self ffiCall: #(struct Font LoadFont(const char* fileName))
+	self ffiCall: #(Font LoadFont(const char* fileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadFontDataFileData: fileData dataSize: dataSize fontSize: fontSize codepoints: codepoints codepointCount: codepointCount type: type [
 
-	self ffiCall: #(struct GlyphInfo* LoadFontData(const uchar* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, int type))
+	self ffiCall: #(GlyphInfo* LoadFontData(const uchar* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, int type))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadFontExFileName: fileName fontSize: fontSize codepoints: codepoints codepointCount: codepointCount [
 
-	self ffiCall: #(struct Font LoadFontEx(const char* fileName, int fontSize, int* codepoints, int codepointCount))
+	self ffiCall: #(Font LoadFontEx(const char* fileName, int fontSize, int* codepoints, int codepointCount))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadFontFromImage: image key: key firstChar: firstChar [
 
-	self ffiCall: #(struct Font LoadFontFromImage(Image image, Color key, int firstChar))
+	self ffiCall: #(Font LoadFontFromImage(Image image, Color key, int firstChar))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadFontFromMemoryFileType: fileType fileData: fileData dataSize: dataSize fontSize: fontSize codepoints: codepoints codepointCount: codepointCount [
 
-	self ffiCall: #(struct Font LoadFontFromMemory(const char* fileType, const uchar* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount))
+	self ffiCall: #(Font LoadFontFromMemory(const char* fileType, const uchar* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImage: fileName [
 
-	self ffiCall: #(struct Image LoadImage(const char* fileName))
+	self ffiCall: #(Image LoadImage(const char* fileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageAnimFileName: fileName frames: frames [
 
-	self ffiCall: #(struct Image LoadImageAnim(const char* fileName, int* frames))
+	self ffiCall: #(Image LoadImageAnim(const char* fileName, int* frames))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageAnimFromMemoryFileType: fileType fileData: fileData dataSize: dataSize frames: frames [
 
-	self ffiCall: #(struct Image LoadImageAnimFromMemory(const char* fileType, const uchar* fileData, int dataSize, int* frames))
+	self ffiCall: #(Image LoadImageAnimFromMemory(const char* fileType, const uchar* fileData, int dataSize, int* frames))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageColors: image [
 
-	self ffiCall: #(struct Color* LoadImageColors(Image image))
+	self ffiCall: #(Color* LoadImageColors(Image image))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageFromMemoryFileType: fileType fileData: fileData dataSize: dataSize [
 
-	self ffiCall: #(struct Image LoadImageFromMemory(const char* fileType, const uchar* fileData, int dataSize))
+	self ffiCall: #(Image LoadImageFromMemory(const char* fileType, const uchar* fileData, int dataSize))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageFromScreen [
 
-	self ffiCall: #(struct Image LoadImageFromScreen())
+	self ffiCall: #(Image LoadImageFromScreen())
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageFromTexture: texture [
 
-	self ffiCall: #(struct Image LoadImageFromTexture(Texture2D texture))
+	self ffiCall: #(Image LoadImageFromTexture(Texture2D texture))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImagePaletteImage: image maxPaletteSize: maxPaletteSize colorCount: colorCount [
 
-	self ffiCall: #(struct Color* LoadImagePalette(Image image, int maxPaletteSize, int* colorCount))
+	self ffiCall: #(Color* LoadImagePalette(Image image, int maxPaletteSize, int* colorCount))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageRawFileName: fileName width: width height: height format: format headerSize: headerSize [
 
-	self ffiCall: #(struct Image LoadImageRaw(const char* fileName, int width, int height, int format, int headerSize))
+	self ffiCall: #(Image LoadImageRaw(const char* fileName, int width, int height, int format, int headerSize))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadImageSvgFileNameOrString: fileNameOrString width: width height: height [
 
-	self ffiCall: #(struct Image LoadImageSvg(const char* fileNameOrString, int width, int height))
+	self ffiCall: #(Image LoadImageSvg(const char* fileNameOrString, int width, int height))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadMaterialDefault [
 
-	self ffiCall: #(struct Material LoadMaterialDefault())
+	self ffiCall: #(Material LoadMaterialDefault())
 ]
 
 { #category : 'public' }
 LibRaylib >> loadMaterialsFileName: fileName materialCount: materialCount [
 
-	self ffiCall: #(struct Material* LoadMaterials(const char* fileName, int* materialCount))
+	self ffiCall: #(Material* LoadMaterials(const char* fileName, int* materialCount))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadModel: fileName [
 
-	self ffiCall: #(struct Model LoadModel(const char* fileName))
+	self ffiCall: #(Model LoadModel(const char* fileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadModelAnimationsFileName: fileName animCount: animCount [
 
-	self ffiCall: #(struct ModelAnimation* LoadModelAnimations(const char* fileName, int* animCount))
+	self ffiCall: #(ModelAnimation* LoadModelAnimations(const char* fileName, int* animCount))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadModelFromMesh: mesh [
 
-	self ffiCall: #(struct Model LoadModelFromMesh(Mesh mesh))
+	self ffiCall: #(Model LoadModelFromMesh(Mesh mesh))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadMusicStream: fileName [
 
-	self ffiCall: #(struct Music LoadMusicStream(const char* fileName))
+	self ffiCall: #(Music LoadMusicStream(const char* fileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadMusicStreamFromMemoryFileType: fileType data: data dataSize: dataSize [
 
-	self ffiCall: #(struct Music LoadMusicStreamFromMemory(const char* fileType, const uchar* data, int dataSize))
+	self ffiCall: #(Music LoadMusicStreamFromMemory(const char* fileType, const uchar* data, int dataSize))
 ]
 
 { #category : 'public' }
@@ -2463,31 +2463,31 @@ LibRaylib >> loadRenderTextureWidth: width height: height [
 { #category : 'public' }
 LibRaylib >> loadShaderFromMemoryVsCode: vsCode fsCode: fsCode [
 
-	self ffiCall: #(struct Shader LoadShaderFromMemory(const char* vsCode, const char* fsCode))
+	self ffiCall: #(Shader LoadShaderFromMemory(const char* vsCode, const char* fsCode))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadShaderVsFileName: vsFileName fsFileName: fsFileName [
 
-	self ffiCall: #(struct Shader LoadShader(const char* vsFileName, const char* fsFileName))
+	self ffiCall: #(Shader LoadShader(const char* vsFileName, const char* fsFileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadSound: fileName [
 
-	self ffiCall: #(struct Sound LoadSound(const char* fileName))
+	self ffiCall: #(Sound LoadSound(const char* fileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadSoundAlias: source [
 
-	self ffiCall: #(struct Sound LoadSoundAlias(Sound source))
+	self ffiCall: #(Sound LoadSoundAlias(Sound source))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadSoundFromWave: wave [
 
-	self ffiCall: #(struct Sound LoadSoundFromWave(Wave wave))
+	self ffiCall: #(Sound LoadSoundFromWave(Wave wave))
 ]
 
 { #category : 'public' }
@@ -2517,19 +2517,19 @@ LibRaylib >> loadUTF8Codepoints: codepoints length: length [
 { #category : 'public' }
 LibRaylib >> loadVrStereoConfig: device [
 
-	self ffiCall: #(struct VrStereoConfig LoadVrStereoConfig(VrDeviceInfo device))
+	self ffiCall: #(VrStereoConfig LoadVrStereoConfig(VrDeviceInfo device))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadWave: fileName [
 
-	self ffiCall: #(struct Wave LoadWave(const char* fileName))
+	self ffiCall: #(Wave LoadWave(const char* fileName))
 ]
 
 { #category : 'public' }
 LibRaylib >> loadWaveFromMemoryFileType: fileType fileData: fileData dataSize: dataSize [
 
-	self ffiCall: #(struct Wave LoadWaveFromMemory(const char* fileType, const uchar* fileData, int dataSize))
+	self ffiCall: #(Wave LoadWaveFromMemory(const char* fileType, const uchar* fileData, int dataSize))
 ]
 
 { #category : 'public' }
@@ -2561,7 +2561,7 @@ LibRaylib >> measureText: text fontSize: fontSize [
 { #category : 'public' }
 LibRaylib >> measureTextExFont: font text: text fontSize: fontSize spacing: spacing [
 
-	self ffiCall: #(struct Vector2 MeasureTextEx(Font font, const char* text, float fontSize, float spacing))
+	self ffiCall: #(Vector2 MeasureTextEx(Font font, const char* text, float fontSize, float spacing))
 ]
 
 { #category : 'public' }
@@ -2586,6 +2586,14 @@ LibRaylib >> memReallocPtr: ptr size: size [
 LibRaylib >> minimizeWindow [
 
 	self ffiCall: #(void MinimizeWindow())
+]
+
+{ #category : 'drawing' }
+LibRaylib >> mode3D: camera do: aBlock [
+
+	self beginMode3D: camera.
+	aBlock ensure: [ 
+		self endMode3D ]	 
 ]
 
 { #category : 'public' }
@@ -3411,7 +3419,7 @@ LibRaylib >> waitTime: seconds [
 { #category : 'public' }
 LibRaylib >> waveCopy: wave [
 
-	self ffiCall: #(struct Wave WaveCopy(Wave wave))
+	self ffiCall: #(Wave WaveCopy(Wave wave))
 ]
 
 { #category : 'public' }
