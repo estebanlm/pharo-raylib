@@ -21,7 +21,7 @@ RayModelAnimation class >> fieldsDesc [
 	int frameCount;
 	BoneInfo* bones;
 	Transform** framePoses;
-	char name
+	char_32 name
 	)
 ]
 
@@ -76,11 +76,11 @@ RayModelAnimation >> framePoses: anObject [
 { #category : 'accessing - structure variables' }
 RayModelAnimation >> name [
 	"This method was automatically generated"
-	^handle unsignedCharAt: OFFSET_NAME
+	^(FFIArray ofType: #FFICharacterType size: 32) fromHandle: (handle copyFrom: OFFSET_NAME to: OFFSET_NAME + 31)
 ]
 
 { #category : 'accessing - structure variables' }
 RayModelAnimation >> name: anObject [
 	"This method was automatically generated"
-	handle unsignedCharAt: OFFSET_NAME put: anObject
+	handle replaceFrom: OFFSET_NAME to: OFFSET_NAME + 31 with: anObject getHandle startingAt: 1
 ]

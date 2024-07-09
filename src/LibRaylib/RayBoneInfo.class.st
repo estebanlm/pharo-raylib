@@ -14,7 +14,7 @@ Class {
 RayBoneInfo class >> fieldsDesc [
 
 	^ #(
-	char name;
+	char_32 name;
 	int parent
 	)
 ]
@@ -22,13 +22,13 @@ RayBoneInfo class >> fieldsDesc [
 { #category : 'accessing - structure variables' }
 RayBoneInfo >> name [
 	"This method was automatically generated"
-	^handle unsignedCharAt: OFFSET_NAME
+	^(FFIArray ofType: #FFICharacterType size: 32) fromHandle: (handle copyFrom: OFFSET_NAME to: OFFSET_NAME + 31)
 ]
 
 { #category : 'accessing - structure variables' }
 RayBoneInfo >> name: anObject [
 	"This method was automatically generated"
-	handle unsignedCharAt: OFFSET_NAME put: anObject
+	handle replaceFrom: OFFSET_NAME to: OFFSET_NAME + 31 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }

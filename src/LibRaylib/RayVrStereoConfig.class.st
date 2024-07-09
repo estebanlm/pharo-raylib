@@ -20,109 +20,109 @@ Class {
 RayVrStereoConfig class >> fieldsDesc [
 
 	^ #(
-	Matrix projection;
-	Matrix viewOffset;
-	float leftLensCenter;
-	float rightLensCenter;
-	float leftScreenCenter;
-	float rightScreenCenter;
-	float scale;
-	float scaleIn
+	Matrix_2 projection;
+	Matrix_2 viewOffset;
+	float_2 leftLensCenter;
+	float_2 rightLensCenter;
+	float_2 leftScreenCenter;
+	float_2 rightScreenCenter;
+	float_2 scale;
+	float_2 scaleIn
 	)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> leftLensCenter [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_LEFTLENSCENTER
+	^(FFIArray ofType: #FFIFloat32 size: 2) fromHandle: (handle copyFrom: OFFSET_LEFTLENSCENTER to: OFFSET_LEFTLENSCENTER + 7)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> leftLensCenter: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_LEFTLENSCENTER put: anObject
+	handle replaceFrom: OFFSET_LEFTLENSCENTER to: OFFSET_LEFTLENSCENTER + 7 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> leftScreenCenter [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_LEFTSCREENCENTER
+	^(FFIArray ofType: #FFIFloat32 size: 2) fromHandle: (handle copyFrom: OFFSET_LEFTSCREENCENTER to: OFFSET_LEFTSCREENCENTER + 7)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> leftScreenCenter: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_LEFTSCREENCENTER put: anObject
+	handle replaceFrom: OFFSET_LEFTSCREENCENTER to: OFFSET_LEFTSCREENCENTER + 7 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> projection [
 	"This method was automatically generated"
-	^ RayMatrix fromHandle: (handle referenceStructAt: OFFSET_PROJECTION length: RayMatrix byteSize)
+	^(FFIArray ofType: #FFIExternalStructureType size: 2) fromHandle: (handle copyFrom: OFFSET_PROJECTION to: OFFSET_PROJECTION + 127)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> projection: anObject [
 	"This method was automatically generated"
-	handle structAt: OFFSET_PROJECTION put: anObject getHandle length: RayMatrix byteSize
+	handle replaceFrom: OFFSET_PROJECTION to: OFFSET_PROJECTION + 127 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> rightLensCenter [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_RIGHTLENSCENTER
+	^(FFIArray ofType: #FFIFloat32 size: 2) fromHandle: (handle copyFrom: OFFSET_RIGHTLENSCENTER to: OFFSET_RIGHTLENSCENTER + 7)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> rightLensCenter: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_RIGHTLENSCENTER put: anObject
+	handle replaceFrom: OFFSET_RIGHTLENSCENTER to: OFFSET_RIGHTLENSCENTER + 7 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> rightScreenCenter [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_RIGHTSCREENCENTER
+	^(FFIArray ofType: #FFIFloat32 size: 2) fromHandle: (handle copyFrom: OFFSET_RIGHTSCREENCENTER to: OFFSET_RIGHTSCREENCENTER + 7)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> rightScreenCenter: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_RIGHTSCREENCENTER put: anObject
+	handle replaceFrom: OFFSET_RIGHTSCREENCENTER to: OFFSET_RIGHTSCREENCENTER + 7 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> scale [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_SCALE
+	^(FFIArray ofType: #FFIFloat32 size: 2) fromHandle: (handle copyFrom: OFFSET_SCALE to: OFFSET_SCALE + 7)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> scale: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_SCALE put: anObject
+	handle replaceFrom: OFFSET_SCALE to: OFFSET_SCALE + 7 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> scaleIn [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_SCALEIN
+	^(FFIArray ofType: #FFIFloat32 size: 2) fromHandle: (handle copyFrom: OFFSET_SCALEIN to: OFFSET_SCALEIN + 7)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> scaleIn: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_SCALEIN put: anObject
+	handle replaceFrom: OFFSET_SCALEIN to: OFFSET_SCALEIN + 7 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> viewOffset [
 	"This method was automatically generated"
-	^ RayMatrix fromHandle: (handle referenceStructAt: OFFSET_VIEWOFFSET length: RayMatrix byteSize)
+	^(FFIArray ofType: #FFIExternalStructureType size: 2) fromHandle: (handle copyFrom: OFFSET_VIEWOFFSET to: OFFSET_VIEWOFFSET + 127)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrStereoConfig >> viewOffset: anObject [
 	"This method was automatically generated"
-	handle structAt: OFFSET_VIEWOFFSET put: anObject getHandle length: RayMatrix byteSize
+	handle replaceFrom: OFFSET_VIEWOFFSET to: OFFSET_VIEWOFFSET + 127 with: anObject getHandle startingAt: 1
 ]

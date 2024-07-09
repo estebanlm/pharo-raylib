@@ -28,21 +28,21 @@ RayVrDeviceInfo class >> fieldsDesc [
 	float eyeToScreenDistance;
 	float lensSeparationDistance;
 	float interpupillaryDistance;
-	float lensDistortionValues;
-	float chromaAbCorrection
+	float_4 lensDistortionValues;
+	float_4 chromaAbCorrection
 	)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrDeviceInfo >> chromaAbCorrection [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_CHROMAABCORRECTION
+	^(FFIArray ofType: #FFIFloat32 size: 4) fromHandle: (handle copyFrom: OFFSET_CHROMAABCORRECTION to: OFFSET_CHROMAABCORRECTION + 15)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrDeviceInfo >> chromaAbCorrection: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_CHROMAABCORRECTION put: anObject
+	handle replaceFrom: OFFSET_CHROMAABCORRECTION to: OFFSET_CHROMAABCORRECTION + 15 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }
@@ -96,13 +96,13 @@ RayVrDeviceInfo >> interpupillaryDistance: anObject [
 { #category : 'accessing - structure variables' }
 RayVrDeviceInfo >> lensDistortionValues [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_LENSDISTORTIONVALUES
+	^(FFIArray ofType: #FFIFloat32 size: 4) fromHandle: (handle copyFrom: OFFSET_LENSDISTORTIONVALUES to: OFFSET_LENSDISTORTIONVALUES + 15)
 ]
 
 { #category : 'accessing - structure variables' }
 RayVrDeviceInfo >> lensDistortionValues: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_LENSDISTORTIONVALUES put: anObject
+	handle replaceFrom: OFFSET_LENSDISTORTIONVALUES to: OFFSET_LENSDISTORTIONVALUES + 15 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }

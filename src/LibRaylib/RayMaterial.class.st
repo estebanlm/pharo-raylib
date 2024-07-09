@@ -17,7 +17,7 @@ RayMaterial class >> fieldsDesc [
 	^ #(
 	Shader shader;
 	MaterialMap* maps;
-	float params
+	float_4 params
 	)
 ]
 
@@ -36,13 +36,13 @@ RayMaterial >> maps: anObject [
 { #category : 'accessing - structure variables' }
 RayMaterial >> params [
 	"This method was automatically generated"
-	^handle floatAt: OFFSET_PARAMS
+	^(FFIArray ofType: #FFIFloat32 size: 4) fromHandle: (handle copyFrom: OFFSET_PARAMS to: OFFSET_PARAMS + 15)
 ]
 
 { #category : 'accessing - structure variables' }
 RayMaterial >> params: anObject [
 	"This method was automatically generated"
-	handle floatAt: OFFSET_PARAMS put: anObject
+	handle replaceFrom: OFFSET_PARAMS to: OFFSET_PARAMS + 15 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }

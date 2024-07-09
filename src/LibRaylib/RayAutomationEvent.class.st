@@ -17,7 +17,7 @@ RayAutomationEvent class >> fieldsDesc [
 	^ #(
 	uint frame;
 	uint type;
-	int params
+	int_4 params
 	)
 ]
 
@@ -36,13 +36,13 @@ RayAutomationEvent >> frame: anObject [
 { #category : 'accessing - structure variables' }
 RayAutomationEvent >> params [
 	"This method was automatically generated"
-	^handle signedLongAt: OFFSET_PARAMS
+	^(FFIArray ofType: #FFIInt32 size: 4) fromHandle: (handle copyFrom: OFFSET_PARAMS to: OFFSET_PARAMS + 15)
 ]
 
 { #category : 'accessing - structure variables' }
 RayAutomationEvent >> params: anObject [
 	"This method was automatically generated"
-	handle signedLongAt: OFFSET_PARAMS put: anObject
+	handle replaceFrom: OFFSET_PARAMS to: OFFSET_PARAMS + 15 with: anObject getHandle startingAt: 1
 ]
 
 { #category : 'accessing - structure variables' }

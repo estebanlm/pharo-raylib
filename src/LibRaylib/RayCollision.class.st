@@ -1,5 +1,5 @@
 Class {
-	#name : 'RayRayCollision',
+	#name : 'RayCollision',
 	#superclass : 'RayStructure',
 	#classVars : [
 		'OFFSET_DISTANCE',
@@ -13,7 +13,7 @@ Class {
 }
 
 { #category : 'field definition' }
-RayRayCollision class >> fieldsDesc [
+RayCollision class >> fieldsDesc [
 
 	^ #(
 	int hit;
@@ -24,49 +24,49 @@ RayRayCollision class >> fieldsDesc [
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> distance [
+RayCollision >> distance [
 	"This method was automatically generated"
 	^handle floatAt: OFFSET_DISTANCE
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> distance: anObject [
+RayCollision >> distance: anObject [
 	"This method was automatically generated"
 	handle floatAt: OFFSET_DISTANCE put: anObject
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> hit [
+RayCollision >> hit [
 	"This method was automatically generated"
 	^handle signedLongAt: OFFSET_HIT
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> hit: anObject [
+RayCollision >> hit: anObject [
 	"This method was automatically generated"
 	handle signedLongAt: OFFSET_HIT put: anObject
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> normal [
+RayCollision >> normal [
 	"This method was automatically generated"
 	^ RayVector3 fromHandle: (handle referenceStructAt: OFFSET_NORMAL length: RayVector3 byteSize)
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> normal: anObject [
+RayCollision >> normal: anObject [
 	"This method was automatically generated"
 	handle structAt: OFFSET_NORMAL put: anObject getHandle length: RayVector3 byteSize
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> point [
+RayCollision >> point [
 	"This method was automatically generated"
 	^ RayVector3 fromHandle: (handle referenceStructAt: OFFSET_POINT length: RayVector3 byteSize)
 ]
 
 { #category : 'accessing - structure variables' }
-RayRayCollision >> point: anObject [
+RayCollision >> point: anObject [
 	"This method was automatically generated"
 	handle structAt: OFFSET_POINT put: anObject getHandle length: RayVector3 byteSize
 ]

@@ -32,6 +32,7 @@ Class {
 		'MaterialMap',
 		'MaterialMapIndex',
 		'Matrix',
+		'Matrix_2',
 		'Mesh',
 		'Model',
 		'ModelAnimation',
@@ -43,7 +44,6 @@ Class {
 		'PixelFormat',
 		'Quaternion',
 		'Ray',
-		'RayCollision',
 		'Rectangle',
 		'RenderTexture',
 		'RenderTexture2D',
@@ -68,16 +68,23 @@ Class {
 		'VrStereoConfig',
 		'Wave',
 		'bool',
+		'char_32',
+		'float_2',
+		'float_4',
 		'int16_t',
 		'int32_t',
 		'int64_t',
 		'int8_t',
+		'int_4',
+		'pid_t',
 		'rAudioBuffer',
 		'rAudioProcessor',
+		'time_t',
 		'uint16_t',
 		'uint32_t',
 		'uint64_t',
-		'uint8_t'
+		'uint8_t',
+		'uintptr_t'
 	],
 	#category : 'LibRaylib-Library',
 	#package : 'LibRaylib',
@@ -87,22 +94,24 @@ Class {
 { #category : 'class initialization' }
 RayRaylibTypedef class >> initialize [
 
-	uint32_t := #uint32.
-	bool := #Boolean.
+	pid_t := #int.
 	uint16_t := #uint16.
+	uint8_t := #uint8.
 	int16_t := #int16.
-	uint64_t := #uint64.
+	int64_t := #int64.
+	uint32_t := #uint32.
+	time_t := #int.
+	uintptr_t := #'void *'.
 	int32_t := #int32.
 	int8_t := #int8.
-	uint8_t := #uint8.
-	int64_t := #int64.
+	bool := #Boolean.
+	uint64_t := #uint64.
 	MouseCursor := RayMouseCursor.
 	ShaderLocationIndex := RayShaderLocationIndex.
 	Font := RayFont.
 	BlendMode := RayBlendMode.
 	SaveFileTextCallback := FFICallback.
 	Matrix := RayMatrix.
-	RayCollision := RayRayCollision.
 	rAudioProcessor := RayRAudioProcessor.
 	MaterialMap := RayMaterialMap.
 	AutomationEvent := RayAutomationEvent.
@@ -126,6 +135,7 @@ RayRaylibTypedef class >> initialize [
 	Camera3D := RayCamera3D.
 	GamepadButton := RayGamepadButton.
 	Mesh := RayMesh.
+	int_4 := FFIArray ofType: 'int' size: 4.
 	ShaderUniformDataType := RayShaderUniformDataType.
 	BoundingBox := RayBoundingBox.
 	AudioStream := RayAudioStream.
@@ -137,6 +147,7 @@ RayRaylibTypedef class >> initialize [
 	BoneInfo := RayBoneInfo.
 	ShaderAttributeDataType := RayShaderAttributeDataType.
 	GlyphInfo := RayGlyphInfo.
+	Matrix_2 := FFIArray ofType: Matrix size: 2.
 	LoadFileDataCallback := FFICallback.
 	Quaternion := RayVector4.
 	Ray := RayRay.
@@ -145,12 +156,14 @@ RayRaylibTypedef class >> initialize [
 	Camera2D := RayCamera2D.
 	RenderTexture2D := RayRenderTexture.
 	Wave := RayWave.
+	float_2 := FFIArray ofType: 'float' size: 2.
 	TextureWrap := RayTextureWrap.
 	Gesture := RayGesture.
-	CameraProjection := RayCameraProjection.
 	Sound := RaySound.
+	CameraProjection := RayCameraProjection.
 	Texture := RayTexture.
 	KeyboardKey := RayKeyboardKey.
+	float_4 := FFIArray ofType: 'float' size: 4.
 	TextureFilter := RayTextureFilter.
 	Transform := RayTransform.
 	Color := RayColor.
@@ -159,6 +172,7 @@ RayRaylibTypedef class >> initialize [
 	CameraMode := RayCameraMode.
 	FontType := RayFontType.
 	GamepadAxis := RayGamepadAxis.
+	char_32 := FFIArray ofType: 'char' size: 32.
 	Image := RayImage.
 	AutomationEventList := RayAutomationEventList.
 	TraceLogLevel := RayTraceLogLevel.

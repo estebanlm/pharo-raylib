@@ -12,6 +12,18 @@ Class {
 	#tag : 'Base'
 }
 
+{ #category : 'constants' }
+RayColor class >> black [
+
+	^ self newR: 0 g: 0 b: 0 a: 255
+]
+
+{ #category : 'constants' }
+RayColor class >> blue [
+
+	^ self newR: 0 g: 121 b: 241 a: 255
+]
+
 { #category : 'field definition' }
 RayColor class >> fieldsDesc [
 
@@ -24,9 +36,27 @@ RayColor class >> fieldsDesc [
 ]
 
 { #category : 'constants' }
+RayColor class >> gold [
+
+	^ self newR: 255 g: 203 b: 0 a: 255
+]
+
+{ #category : 'constants' }
+RayColor class >> green [
+
+	^ self newR: 0 g: 200 b: 0 a: 255
+]
+
+{ #category : 'constants' }
 RayColor class >> lightGray [
 
 	^ self newR: 200 g: 200 b: 200 a: 255
+]
+
+{ #category : 'constants' }
+RayColor class >> lime [
+
+	^ self newR: 0 g: 158 b: 47 a: 255
 ]
 
 { #category : 'instance creation' }

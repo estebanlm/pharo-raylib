@@ -12,7 +12,6 @@ CigCLibraryGenerator new
 	useMainThread;
 	generate.
 ```
-
 "
 Class {
 	#name : 'LibRaylib',
@@ -30,7 +29,8 @@ LibRaylib class >> example [
 	| ray |
 
 	ray := self uniqueInstance.
-	ray initWindowWidth: 800 height: 450 title: 'Test'.
+	
+	ray initWindowWidth: 800 height: 450 title: 'Raylib [core] example - basic window'.
 	ray setTargetFPS: 60.
 	[ ray windowShouldClose = 0 ] whileTrue: [ 
 		ray drawDo: [ 
@@ -2541,7 +2541,9 @@ LibRaylib >> loadWaveSamples: wave [
 { #category : 'accessing - platform' }
 LibRaylib >> macLibraryName [
 
-	^ FFIMacLibraryFinder findLibrary: 'libraylib.dylib'
+	^ FFIMacLibraryFinder new
+		userPaths: #('./CIG/lib');
+		findLibrary: 'libraylib.dylib'
 ]
 
 { #category : 'public' }
@@ -3167,7 +3169,9 @@ LibRaylib >> toggleFullscreen [
 { #category : 'accessing - platform' }
 LibRaylib >> unix64LibraryName [
 
-	^ FFIUnix64LibraryFinder findLibrary: 'libraylib.so'
+	^ FFIUnix64LibraryFinder new
+		userPaths: #('./CIG/lib');
+		findLibrary: 'libraylib.so'
 ]
 
 { #category : 'public' }
@@ -3425,7 +3429,9 @@ LibRaylib >> waveFormatWave: wave sampleRate: sampleRate sampleSize: sampleSize 
 { #category : 'accessing - platform' }
 LibRaylib >> win32LibraryName [
 
-	^ FFIWindowsLibraryFinder findLibrary: 'libraylib.dll'
+	^ FFIWindowsLibraryFinder new
+		userPaths: #('./CIG/lib');
+		findLibrary: 'raylib.dll'
 ]
 
 { #category : 'public' }

@@ -21,6 +21,16 @@ RayVector3 class >> fieldsDesc [
 	)
 ]
 
+{ #category : 'instance creation' }
+RayVector3 class >> newX: xFloat y: yFloat z: zFloat [
+
+	^ self new 
+		x: xFloat; 
+		y: yFloat; 
+		z: zFloat;
+		yourself
+]
+
 { #category : 'accessing - structure variables' }
 RayVector3 >> x [
 	"This method was automatically generated"
