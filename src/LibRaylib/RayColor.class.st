@@ -59,6 +59,12 @@ RayColor class >> lime [
 	^ self newR: 0 g: 158 b: 47 a: 255
 ]
 
+{ #category : 'constants' }
+RayColor class >> maroon [
+
+	^ self newR: 190 g: 33 b: 55 a: 255
+]
+
 { #category : 'instance creation' }
 RayColor class >> newR: r g: g b: b a: a [
 
@@ -68,6 +74,12 @@ RayColor class >> newR: r g: g b: b a: a [
 		b: b; 
 		a: a;
 		yourself
+]
+
+{ #category : 'constants' }
+RayColor class >> skyBlue [
+
+	^ self newR: 102 g: 191 b: 255 a: 255
 ]
 
 { #category : 'constants' }

@@ -46,6 +46,155 @@ LibRaylib class >> example [
 	ray closeWindow
 ]
 
+{ #category : 'examples' }
+LibRaylib class >> example3d [
+	| ray camera cameraMode numColumns columns DEG2RAD KEY_ONE KEY_TWO KEY_THREE KEY_FOUR KEY_P |
+
+	ray := self uniqueInstance.
+	
+	DEG2RAD := Float pi / 180.0.
+	
+	KEY_ONE := 49.
+	KEY_TWO := 50.
+	KEY_THREE := 51.
+	KEY_FOUR := 52.
+	KEY_P := 80.
+	
+	ray initWindowWidth: 800 height: 450 title: 'Raylib [core] example - 3d camera first person'.
+	
+	camera := RayCamera3D new.
+	camera position: (RayVector3 newX: 0.0 y: 2.0 z: 4.0).
+	camera target: (RayVector3 newX: 0.0 y: 2.0 z: 0.0).
+	camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0).
+	camera fovy: 60.0.
+	camera projection: RayCameraProjection CAMERA_PERSPECTIVE value. 
+
+	cameraMode := RayCameraMode CAMERA_FIRST_PERSON.
+
+	numColumns := 20.
+	columns := Array streamContents: [ :stream |
+		numColumns timesRepeat: [ 
+			| height |
+			height := ray getRandomValueMin: 1 max: 12.
+			stream nextPut: { 
+				height.
+				RayVector3 
+					newX: (ray getRandomValueMin: -15 max: 15) 
+					y: (height / 2.0) 
+					z: (ray getRandomValueMin: -15 max: 15).
+				RayColor 
+					newR: (ray getRandomValueMin: 20 max: 255)
+					g: (ray getRandomValueMin: 10 max: 55) 
+					b: 30 
+					a: 255 } ] ].
+	
+	"ray disableCursor."
+	ray setTargetFPS: 60.
+	
+	[ ray windowShouldClose = 0 ] whileTrue: [
+		((ray isKeyPressed: KEY_ONE) ~= 0) ifTrue: [
+			cameraMode := RayCameraMode CAMERA_FREE.
+			camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0) ].
+		((ray isKeyPressed: KEY_TWO) ~= 0) ifTrue: [
+			cameraMode := RayCameraMode CAMERA_FIRST_PERSON.
+			camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0) ].
+		((ray isKeyPressed: KEY_THREE) ~= 0) ifTrue: [
+			cameraMode := RayCameraMode CAMERA_THIRD_PERSON.
+			camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0) ].
+		((ray isKeyPressed: KEY_FOUR) ~= 0) ifTrue: [
+			cameraMode := RayCameraMode CAMERA_ORBITAL.
+			camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0) ].
+		((ray isKeyPressed: KEY_P) ~= 0) ifTrue: [
+			cameraMode := RayCameraMode CAMERA_THIRD_PERSON.
+			(camera projection = (RayCameraProjection CAMERA_PERSPECTIVE value))
+				ifTrue: [ 
+					camera position: (RayVector3 newX: 0.0 y: 2.0 z: -100.0).
+					camera target: (RayVector3 newX: 0.0 y: 2.0 z: 0.0).
+					camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0).
+					camera projection: RayCameraProjection CAMERA_ORTHOGRAPHIC value.
+					camera fovy: 20.0.
+					ray 
+						cameraYawCamera: camera 
+						angle: -135 * DEG2RAD 
+						rotateAroundTarget: true.
+					ray 
+						cameraPitchCamera: camera 
+						angle: -45 * DEG2RAD 
+						lockView: true 
+						rotateAroundTarget: true 
+						rotateUp: false ]
+				ifFalse: [ 
+					camera position: (RayVector3 newX: 0.0 y: 2.0 z: 10.0).
+					camera target: (RayVector3 newX: 0.0 y: 2.0 z: 0.0).
+					camera up: (RayVector3 newX: 0.0 y: 1.0 z: 0.0).
+					camera projection: RayCameraProjection CAMERA_PERSPECTIVE value.
+					camera fovy: 60.0 ] ].		
+
+		ray updateCamera: camera mode: cameraMode value. 
+		ray drawDo: [ 
+			ray clearBackground: RayColor white.
+			ray mode3D: camera do: [ 
+				ray 
+					drawPlaneCenterPos: RayVector3 new 
+					size: (RayVector2 newX: 32.0 y: 32.0) 
+					color: RayColor lightGray.
+				ray 
+					drawCubePosition: (RayVector3 newX: -16 y: 2.5 z: 0.0)  
+					width: 1.0 
+					height: 5.0  
+					length: 32.0 
+					color: RayColor blue.
+				ray 
+					drawCubePosition: (RayVector3 newX: 16 y: 2.5 z: 0.0)  
+					width: 1.0 
+					height: 5.0  
+					length: 32.0 
+					color: RayColor lime.
+				ray 
+					drawCubePosition: (RayVector3 newX: 0 y: 2.5 z: 16.0)  
+					width: 32.0 
+					height: 5.0  
+					length: 1.0 
+					color: RayColor gold.
+					
+				columns do: [ :aTuple |
+					ray drawCubePosition: aTuple second width: 2.0 height: aTuple first length: 2.0 color: aTuple third.
+					ray drawCubeWiresPosition: camera target width: 0.5 height: 0.5 length: 0.5 color: RayColor maroon. 
+				].
+			
+				cameraMode = RayCameraMode CAMERA_THIRD_PERSON ifTrue: [ 
+					ray drawCubePosition: camera target width: 0.5 height: 0.5 length: 0.5 color: RayColor green.
+					ray drawCubeWiresPosition: camera target width: 0.5 height: 0.5 length: 0.5 color: RayColor green ] ].
+
+			ray drawRectanglePosX: 5 posY: 5 width: 330 height: 100 color: (ray fadeColor: RayColor skyBlue alpha: 0.5).
+			ray drawRectangleLinesPosX: 5 posY: 5 width: 330 height: 100 color: RayColor blue. 
+			
+			ray drawText: 'Camera controls:' posX: 15 posY: 15 fontSize: 10 color: RayColor black.
+			ray drawText: '- Move keys: W, A, S, D, Space, Left-Ctrl' posX: 15 posY: 30 fontSize: 10 color: RayColor black.
+			ray drawText: '- Look around: arrow keys or mouse' posX: 15 posY: 45 fontSize: 10 color: RayColor black.
+			ray drawText: '- Camera mode keys: 1, 2, 3, 4' posX: 15 posY: 60 fontSize: 10 color: RayColor black.
+			ray drawText: '- Zoom keys: num-plus, num-minus or moise scroll' posX: 15 posY: 75 fontSize: 10 color: RayColor black.
+			ray drawText: '- Camera projection key: P' posX: 15 posY: 90 fontSize: 10 color: RayColor black.
+
+			ray drawRectanglePosX: 600 posY: 5 width: 195 height: 100 color: (ray fadeColor: RayColor skyBlue alpha: 0.5).
+			ray drawRectangleLinesPosX: 600 posY: 5 width: 195 height: 100 color: RayColor blue.
+
+			ray drawText: ('- Mode: ', (cameraMode item asString allButFirst: 7)) 
+				posX: 610 posY: 30 fontSize: 10 color: RayColor black.
+			ray drawText: ('- Projection: ', ((RayCameraProjection fromInteger: camera projection) item asString allButFirst: 7)) 
+				posX: 610 posY: 45 fontSize: 10 color: RayColor black.
+			ray drawText: ('- Position: {1}, {2}, {3}' format: { camera position x. camera position y. camera position z }) 
+				posX: 610 posY: 60 fontSize: 10 color: RayColor black.
+			ray drawText: ('- Target: {1}, {2}, {3}' format: { camera target x. camera target y. camera target z }) 
+				posX: 610 posY: 75 fontSize: 10 color: RayColor black.
+			ray drawText: ('- Up: {1}, {2}, {3}' format: { camera up x. camera up y. camera up z }) 
+				posX: 610 posY: 90 fontSize: 10 color: RayColor black.
+		] 
+	].
+
+	ray closeWindow
+]
+
 { #category : 'public' }
 LibRaylib >> attachAudioMixedProcessor: processor [
 
@@ -107,6 +256,48 @@ LibRaylib >> beginVrStereoMode: config [
 ]
 
 { #category : 'public' }
+LibRaylib >> cameraMoveForwardCamera: camera distance: distance moveInWorldPlane: moveInWorldPlane [
+
+	self ffiCall: #(void CameraMoveForward(int* camera, float distance, int moveInWorldPlane))
+]
+
+{ #category : 'public' }
+LibRaylib >> cameraMoveRightCamera: camera distance: distance moveInWorldPlane: moveInWorldPlane [
+
+	self ffiCall: #(void CameraMoveRight(int* camera, float distance, int moveInWorldPlane))
+]
+
+{ #category : 'public' }
+LibRaylib >> cameraMoveToTargetCamera: camera delta: delta [
+
+	self ffiCall: #(void CameraMoveToTarget(int* camera, float delta))
+]
+
+{ #category : 'public' }
+LibRaylib >> cameraMoveUpCamera: camera distance: distance [
+
+	self ffiCall: #(void CameraMoveUp(int* camera, float distance))
+]
+
+{ #category : 'public' }
+LibRaylib >> cameraPitchCamera: camera angle: angle lockView: lockView rotateAroundTarget: rotateAroundTarget rotateUp: rotateUp [
+
+	self ffiCall: #(void CameraPitch(int* camera, float angle, int lockView, int rotateAroundTarget, int rotateUp))
+]
+
+{ #category : 'public' }
+LibRaylib >> cameraRollCamera: camera angle: angle [
+
+	self ffiCall: #(void CameraRoll(int* camera, float angle))
+]
+
+{ #category : 'public' }
+LibRaylib >> cameraYawCamera: camera angle: angle rotateAroundTarget: rotateAroundTarget [
+
+	self ffiCall: #(void CameraYaw(int* camera, float angle, int rotateAroundTarget))
+]
+
+{ #category : 'public' }
 LibRaylib >> changeDirectory: dir [
 
 	self ffiCall: #(int ChangeDirectory(const char* dir))
@@ -122,6 +313,12 @@ LibRaylib >> checkCollisionBoxSphereBox: box center: center radius: radius [
 LibRaylib >> checkCollisionBoxesBox1: box1 box2: box2 [
 
 	self ffiCall: #(int CheckCollisionBoxes(BoundingBox box1, BoundingBox box2))
+]
+
+{ #category : 'public' }
+LibRaylib >> checkCollisionCircleLineCenter: center radius: radius p1: p1 p2: p2 [
+
+	self ffiCall: #(int CheckCollisionCircleLine(Vector2 center, float radius, Vector2 p1, Vector2 p2))
 ]
 
 { #category : 'public' }
@@ -326,6 +523,12 @@ LibRaylib >> disableCursor [
 LibRaylib >> disableEventWaiting [
 
 	self ffiCall: #(void DisableEventWaiting())
+]
+
+{ #category : 'public' }
+LibRaylib >> drawBillboardCamera: camera texture: texture position: position scale: scale tint: tint [
+
+	self ffiCall: #(void DrawBillboard(Camera camera, Texture2D texture, Vector3 position, float scale, Color tint))
 ]
 
 { #category : 'public' }
@@ -658,6 +861,18 @@ LibRaylib >> drawRectangleProRec: rec origin: origin rotation: rotation color: c
 LibRaylib >> drawRectangleRec: rec color: color [
 
 	self ffiCall: #(void DrawRectangleRec(Rectangle rec, Color color))
+]
+
+{ #category : 'public' }
+LibRaylib >> drawRectangleRoundedLinesExRec: rec roundness: roundness segments: segments lineThick: lineThick color: color [
+
+	self ffiCall: #(void DrawRectangleRoundedLinesEx(Rectangle rec, float roundness, int segments, float lineThick, Color color))
+]
+
+{ #category : 'public' }
+LibRaylib >> drawRectangleRoundedLinesRec: rec roundness: roundness segments: segments color: color [
+
+	self ffiCall: #(void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, Color color))
 ]
 
 { #category : 'public' }
@@ -1153,6 +1368,12 @@ LibRaylib >> getApplicationDirectory [
 ]
 
 { #category : 'public' }
+LibRaylib >> getCameraForward: camera [
+
+	self ffiCall: #(int GetCameraForward(int* camera))
+]
+
+{ #category : 'public' }
 LibRaylib >> getCameraMatrix2D: camera [
 
 	self ffiCall: #(Matrix GetCameraMatrix2D(Camera2D camera))
@@ -1162,6 +1383,30 @@ LibRaylib >> getCameraMatrix2D: camera [
 LibRaylib >> getCameraMatrix: camera [
 
 	self ffiCall: #(Matrix GetCameraMatrix(Camera camera))
+]
+
+{ #category : 'public' }
+LibRaylib >> getCameraProjectionMatrixCamera: camera aspect: aspect [
+
+	self ffiCall: #(int GetCameraProjectionMatrix(int* camera, float aspect))
+]
+
+{ #category : 'public' }
+LibRaylib >> getCameraRight: camera [
+
+	self ffiCall: #(int GetCameraRight(int* camera))
+]
+
+{ #category : 'public' }
+LibRaylib >> getCameraUp: camera [
+
+	self ffiCall: #(int GetCameraUp(int* camera))
+]
+
+{ #category : 'public' }
+LibRaylib >> getCameraViewMatrix: camera [
+
+	self ffiCall: #(int GetCameraViewMatrix(int* camera))
 ]
 
 { #category : 'public' }
@@ -1567,6 +1812,18 @@ LibRaylib >> getScreenToWorld2DPosition: position camera: camera [
 ]
 
 { #category : 'public' }
+LibRaylib >> getScreenToWorldRayExPosition: position camera: camera width: width height: height [
+
+	self ffiCall: #(Ray GetScreenToWorldRayEx(Vector2 position, Camera camera, int width, int height))
+]
+
+{ #category : 'public' }
+LibRaylib >> getScreenToWorldRayPosition: position camera: camera [
+
+	self ffiCall: #(Ray GetScreenToWorldRay(Vector2 position, Camera camera))
+]
+
+{ #category : 'public' }
 LibRaylib >> getScreenWidth [
 
 	self ffiCall: #(int GetScreenWidth())
@@ -1843,6 +2100,12 @@ LibRaylib >> imageDrawLineDst: dst startPosX: startPosX startPosY: startPosY end
 ]
 
 { #category : 'public' }
+LibRaylib >> imageDrawLineExDst: dst start: start end: end thick: thick color: color [
+
+	self ffiCall: #(void ImageDrawLineEx(Image* dst, Vector2 start, Vector2 end, int thick, Color color))
+]
+
+{ #category : 'public' }
 LibRaylib >> imageDrawLineVDst: dst start: start end: end color: color [
 
 	self ffiCall: #(void ImageDrawLineV(Image* dst, Vector2 start, Vector2 end, Color color))
@@ -1897,6 +2160,36 @@ LibRaylib >> imageDrawTextExDst: dst font: font text: text position: position fo
 ]
 
 { #category : 'public' }
+LibRaylib >> imageDrawTriangleDst: dst v1: v1 v2: v2 v3: v3 color: color [
+
+	self ffiCall: #(void ImageDrawTriangle(Image* dst, Vector2 v1, Vector2 v2, Vector2 v3, Color color))
+]
+
+{ #category : 'public' }
+LibRaylib >> imageDrawTriangleExDst: dst v1: v1 v2: v2 v3: v3 c1: c1 c2: c2 c3: c3 [
+
+	self ffiCall: #(void ImageDrawTriangleEx(Image* dst, Vector2 v1, Vector2 v2, Vector2 v3, Color c1, Color c2, Color c3))
+]
+
+{ #category : 'public' }
+LibRaylib >> imageDrawTriangleFanDst: dst points: points pointCount: pointCount color: color [
+
+	self ffiCall: #(void ImageDrawTriangleFan(Image* dst, Vector2* points, int pointCount, Color color))
+]
+
+{ #category : 'public' }
+LibRaylib >> imageDrawTriangleLinesDst: dst v1: v1 v2: v2 v3: v3 color: color [
+
+	self ffiCall: #(void ImageDrawTriangleLines(Image* dst, Vector2 v1, Vector2 v2, Vector2 v3, Color color))
+]
+
+{ #category : 'public' }
+LibRaylib >> imageDrawTriangleStripDst: dst points: points pointCount: pointCount color: color [
+
+	self ffiCall: #(void ImageDrawTriangleStrip(Image* dst, Vector2* points, int pointCount, Color color))
+]
+
+{ #category : 'public' }
 LibRaylib >> imageFlipHorizontal: image [
 
 	self ffiCall: #(void ImageFlipHorizontal(Image* image))
@@ -1915,6 +2208,12 @@ LibRaylib >> imageFormatImage: image newFormat: newFormat [
 ]
 
 { #category : 'public' }
+LibRaylib >> imageFromChannelImage: image selectedChannel: selectedChannel [
+
+	self ffiCall: #(Image ImageFromChannel(Image image, int selectedChannel))
+]
+
+{ #category : 'public' }
 LibRaylib >> imageFromImage: image rec: rec [
 
 	self ffiCall: #(Image ImageFromImage(Image image, Rectangle rec))
@@ -1923,7 +2222,7 @@ LibRaylib >> imageFromImage: image rec: rec [
 { #category : 'public' }
 LibRaylib >> imageKernelConvolutionImage: image kernel: kernel kernelSize: kernelSize [
 
-	self ffiCall: #(void ImageKernelConvolution(Image* image, float* kernel, int kernelSize))
+	self ffiCall: #(void ImageKernelConvolution(Image* image, const float* kernel, int kernelSize))
 ]
 
 { #category : 'public' }
@@ -2044,6 +2343,12 @@ LibRaylib >> isFileDropped [
 LibRaylib >> isFileExtensionFileName: fileName ext: ext [
 
 	self ffiCall: #(int IsFileExtension(const char* fileName, const char* ext))
+]
+
+{ #category : 'public' }
+LibRaylib >> isFileNameValid: fileName [
+
+	self ffiCall: #(int IsFileNameValid(const char* fileName))
 ]
 
 { #category : 'public' }
@@ -2589,11 +2894,11 @@ LibRaylib >> minimizeWindow [
 ]
 
 { #category : 'drawing' }
-LibRaylib >> mode3D: camera do: aBlock [
+LibRaylib >> mode3D: aCamera do: aBlock [
 
-	self beginMode3D: camera.
+	self beginMode3D: aCamera.
 	aBlock ensure: [ 
-		self endMode3D ]	 
+		self endMode3D ]
 ]
 
 { #category : 'public' }
@@ -3133,6 +3438,12 @@ LibRaylib >> textSubtext: text position: position length: length [
 ]
 
 { #category : 'public' }
+LibRaylib >> textToCamel: text [
+
+	self ffiCall: #(const char* TextToCamel(const char* text))
+]
+
+{ #category : 'public' }
 LibRaylib >> textToFloat: text [
 
 	self ffiCall: #(float TextToFloat(const char* text))
@@ -3154,6 +3465,12 @@ LibRaylib >> textToLower: text [
 LibRaylib >> textToPascal: text [
 
 	self ffiCall: #(const char* TextToPascal(const char* text))
+]
+
+{ #category : 'public' }
+LibRaylib >> textToSnake: text [
+
+	self ffiCall: #(const char* TextToSnake(const char* text))
 ]
 
 { #category : 'public' }
@@ -3420,6 +3737,12 @@ LibRaylib >> waitTime: seconds [
 LibRaylib >> waveCopy: wave [
 
 	self ffiCall: #(Wave WaveCopy(Wave wave))
+]
+
+{ #category : 'public' }
+LibRaylib >> waveCropWave: wave initFrame: initFrame finalFrame: finalFrame [
+
+	self ffiCall: #(void WaveCrop(Wave* wave, int initFrame, int finalFrame))
 ]
 
 { #category : 'public' }
