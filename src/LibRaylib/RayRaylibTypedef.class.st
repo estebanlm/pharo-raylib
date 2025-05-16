@@ -23,6 +23,7 @@ Class {
 		'GamepadAxis',
 		'GamepadButton',
 		'Gesture',
+		'GestureEvent',
 		'GlyphInfo',
 		'Image',
 		'KeyboardKey',
@@ -58,10 +59,12 @@ Class {
 		'TextureCubemap',
 		'TextureFilter',
 		'TextureWrap',
+		'TouchAction',
 		'TraceLogCallback',
 		'TraceLogLevel',
 		'Transform',
 		'Vector2',
+		'Vector2_8',
 		'Vector3',
 		'Vector4',
 		'VrDeviceInfo',
@@ -76,6 +79,7 @@ Class {
 		'int64_t',
 		'int8_t',
 		'int_4',
+		'int_8',
 		'pid_t',
 		'rAudioBuffer',
 		'rAudioProcessor',
@@ -94,87 +98,91 @@ Class {
 { #category : 'class initialization' }
 RayRaylibTypedef class >> initialize [
 
-	pid_t := #int.
 	uint16_t := #uint16.
+	uint64_t := #uint64.
 	uint8_t := #uint8.
-	int16_t := #int16.
-	int64_t := #int64.
+	int32_t := #int32.
 	uint32_t := #uint32.
 	time_t := #int.
-	uintptr_t := #'void *'.
-	int32_t := #int32.
-	int8_t := #int8.
+	pid_t := #int.
 	bool := #Boolean.
-	uint64_t := #uint64.
-	MouseCursor := RayMouseCursor.
-	ShaderLocationIndex := RayShaderLocationIndex.
-	Font := RayFont.
-	BlendMode := RayBlendMode.
-	SaveFileTextCallback := FFICallback.
-	Matrix := RayMatrix.
-	rAudioProcessor := RayRAudioProcessor.
-	MaterialMap := RayMaterialMap.
-	AutomationEvent := RayAutomationEvent.
-	rAudioBuffer := RayRAudioBuffer.
+	int8_t := #int8.
+	int16_t := #int16.
+	int64_t := #int64.
+	uintptr_t := #'void *'.
 	Vector2 := RayVector2.
-	TextureCubemap := RayTexture.
-	Shader := RayShader.
-	VrStereoConfig := RayVrStereoConfig.
-	NPatchInfo := RayNPatchInfo.
+	TouchAction := RayTouchAction.
+	int_8 := FFIArray ofType: 'int' size: 8.
+	Vector2_8 := FFIArray ofType: Vector2 size: 8.
+	GestureEvent := RayGestureEvent.
 	Vector3 := RayVector3.
-	ModelAnimation := RayModelAnimation.
-	RenderTexture := RayRenderTexture.
-	Rectangle := RayRectangle.
-	PixelFormat := RayPixelFormat.
 	Vector4 := RayVector4.
-	NPatchLayout := RayNPatchLayout.
-	AudioCallback := FFICallback.
-	Model := RayModel.
-	MaterialMapIndex := RayMaterialMapIndex.
-	FilePathList := RayFilePathList.
-	Camera3D := RayCamera3D.
-	GamepadButton := RayGamepadButton.
-	Mesh := RayMesh.
-	int_4 := FFIArray ofType: 'int' size: 4.
-	ShaderUniformDataType := RayShaderUniformDataType.
-	BoundingBox := RayBoundingBox.
-	AudioStream := RayAudioStream.
-	TraceLogCallback := FFICallback.
-	VrDeviceInfo := RayVrDeviceInfo.
-	MouseButton := RayMouseButton.
-	Texture2D := RayTexture.
-	Material := RayMaterial.
-	BoneInfo := RayBoneInfo.
-	ShaderAttributeDataType := RayShaderAttributeDataType.
-	GlyphInfo := RayGlyphInfo.
-	Matrix_2 := FFIArray ofType: Matrix size: 2.
-	LoadFileDataCallback := FFICallback.
 	Quaternion := RayVector4.
-	Ray := RayRay.
-	CubemapLayout := RayCubemapLayout.
-	ConfigFlags := RayConfigFlags.
-	Camera2D := RayCamera2D.
-	RenderTexture2D := RayRenderTexture.
-	Wave := RayWave.
-	float_2 := FFIArray ofType: 'float' size: 2.
-	TextureWrap := RayTextureWrap.
-	Gesture := RayGesture.
-	Sound := RaySound.
-	CameraProjection := RayCameraProjection.
-	Texture := RayTexture.
-	KeyboardKey := RayKeyboardKey.
-	float_4 := FFIArray ofType: 'float' size: 4.
-	TextureFilter := RayTextureFilter.
-	Transform := RayTransform.
+	Matrix := RayMatrix.
 	Color := RayColor.
-	LoadFileTextCallback := FFICallback.
-	Camera := RayCamera3D.
-	CameraMode := RayCameraMode.
-	FontType := RayFontType.
-	GamepadAxis := RayGamepadAxis.
-	char_32 := FFIArray ofType: 'char' size: 32.
+	Rectangle := RayRectangle.
 	Image := RayImage.
+	Texture := RayTexture.
+	Texture2D := RayTexture.
+	TextureCubemap := RayTexture.
+	RenderTexture := RayRenderTexture.
+	RenderTexture2D := RayRenderTexture.
+	NPatchInfo := RayNPatchInfo.
+	GlyphInfo := RayGlyphInfo.
+	Font := RayFont.
+	Camera3D := RayCamera3D.
+	Camera := RayCamera3D.
+	Camera2D := RayCamera2D.
+	Mesh := RayMesh.
+	Shader := RayShader.
+	MaterialMap := RayMaterialMap.
+	float_4 := FFIArray ofType: 'float' size: 4.
+	Material := RayMaterial.
+	Transform := RayTransform.
+	char_32 := FFIArray ofType: 'char' size: 32.
+	BoneInfo := RayBoneInfo.
+	Model := RayModel.
+	ModelAnimation := RayModelAnimation.
+	Ray := RayRay.
+	BoundingBox := RayBoundingBox.
+	Wave := RayWave.
+	rAudioBuffer := RayRAudioBuffer.
+	rAudioProcessor := RayRAudioProcessor.
+	AudioStream := RayAudioStream.
+	Sound := RaySound.
+	Music := RayMusic.
+	VrDeviceInfo := RayVrDeviceInfo.
+	Matrix_2 := FFIArray ofType: Matrix size: 2.
+	float_2 := FFIArray ofType: 'float' size: 2.
+	VrStereoConfig := RayVrStereoConfig.
+	FilePathList := RayFilePathList.
+	int_4 := FFIArray ofType: 'int' size: 4.
+	AutomationEvent := RayAutomationEvent.
 	AutomationEventList := RayAutomationEventList.
+	ConfigFlags := RayConfigFlags.
 	TraceLogLevel := RayTraceLogLevel.
-	Music := RayMusic
+	KeyboardKey := RayKeyboardKey.
+	MouseButton := RayMouseButton.
+	MouseCursor := RayMouseCursor.
+	GamepadButton := RayGamepadButton.
+	GamepadAxis := RayGamepadAxis.
+	MaterialMapIndex := RayMaterialMapIndex.
+	ShaderLocationIndex := RayShaderLocationIndex.
+	ShaderUniformDataType := RayShaderUniformDataType.
+	ShaderAttributeDataType := RayShaderAttributeDataType.
+	PixelFormat := RayPixelFormat.
+	TextureFilter := RayTextureFilter.
+	TextureWrap := RayTextureWrap.
+	CubemapLayout := RayCubemapLayout.
+	FontType := RayFontType.
+	BlendMode := RayBlendMode.
+	Gesture := RayGesture.
+	CameraMode := RayCameraMode.
+	CameraProjection := RayCameraProjection.
+	NPatchLayout := RayNPatchLayout.
+	TraceLogCallback := FFICallback.
+	LoadFileDataCallback := FFICallback.
+	LoadFileTextCallback := FFICallback.
+	SaveFileTextCallback := FFICallback.
+	AudioCallback := FFICallback
 ]

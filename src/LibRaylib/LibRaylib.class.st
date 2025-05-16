@@ -228,7 +228,7 @@ LibRaylib >> beginMode2D: camera [
 { #category : 'public' }
 LibRaylib >> beginMode3D: camera [
 
-	self ffiCall: #(void BeginMode3D(Camera3D camera))
+	self ffiCall: #(void BeginMode3D(Camera3D *camera))
 ]
 
 { #category : 'public' }
@@ -2956,6 +2956,12 @@ LibRaylib >> pollInputEvents [
 ]
 
 { #category : 'public' }
+LibRaylib >> processGestureEvent: event [
+
+	self ffiCall: #(void ProcessGestureEvent(GestureEvent event))
+]
+
+{ #category : 'public' }
 LibRaylib >> restoreWindow [
 
 	self ffiCall: #(void RestoreWindow())
@@ -3683,6 +3689,12 @@ LibRaylib >> updateCamera: camera mode: mode [
 LibRaylib >> updateCameraProCamera: camera movement: movement rotation: rotation zoom: zoom [
 
 	self ffiCall: #(void UpdateCameraPro(Camera* camera, Vector3 movement, Vector3 rotation, float zoom))
+]
+
+{ #category : 'public' }
+LibRaylib >> updateGestures [
+
+	self ffiCall: #(void UpdateGestures())
 ]
 
 { #category : 'public' }

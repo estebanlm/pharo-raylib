@@ -64,7 +64,7 @@ RayCamera3D >> projection: anObject [
 { #category : 'accessing - structure variables' }
 RayCamera3D >> target [
 	"This method was automatically generated"
-	^ RayVector3 fromHandle: (handle referenceStructAt: OFFSET_TARGET length: RayVector3 byteSize)
+	^ RayVector3 fromHandle: (handle structAt: OFFSET_TARGET length: RayVector3 byteSize)
 ]
 
 { #category : 'accessing - structure variables' }
